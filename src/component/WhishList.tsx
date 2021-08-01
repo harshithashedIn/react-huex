@@ -6,12 +6,14 @@ import {CartDetailItem} from "./CartDetailItem";
 import {useEffect, useState} from "react";
 import CSS from "csstype";
 import "../css/whishlist.css";
+import {Modal} from "./Modal";
 
 export const WhishList = () => {
 
     const [courseList, setCourseList] = useState<ICourse[]>([]);
     const [cartCourseList, setCartCourseList] = useState<ICourse[]>([]);
     const [refresh, setRefresh] = useState(false);
+    const [open, setOpen] = useState(false); //modal
 
     const handleWhishList = (course: ICourse) => {
         let status: boolean = course.whishlist;
@@ -36,7 +38,8 @@ export const WhishList = () => {
         cartCourseList.map((c: ICourse) => {
             if (course.id === c.id) {
                 flag = false;
-                console.log("already exists");
+                console.log("Already exists in cart");
+                setOpen(true);
             }
         })
         if (flag) {
@@ -99,6 +102,11 @@ export const WhishList = () => {
                         );
                     })
                     }
+                </div>
+                <div>
+                    <Modal open={open} onClose={() => {
+                        setOpen(false)
+                    }}/>
                 </div>
             </div>
         </div>

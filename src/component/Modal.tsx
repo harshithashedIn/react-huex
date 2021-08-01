@@ -22,11 +22,10 @@ export function Modal(props: Props) {
                     <div className="modal-container">
                         <img src={modalContainer} className="modal" alt="HASHEDIN"></img>
                         <img src={top} className="top" alt="HASHEDIN"></img>
-                        <img src={cross} className="cross" alt="HASHEDIN"></img>
+                        <button onClick={props.onClose}><img src={cross} className="cross" alt="HASHEDIN"></img></button>
                         <img src={exclamation} className="exclamation" alt="HASHEDIN"></img>
                         <img src={already} className="already" alt="HASHEDIN"></img>
                         <img src={xyz} className="xyz" alt="HASHEDIN"></img>
-                        <button onClick={props.onClose}>close</button>
                     </div>
                 </div>
             </>
