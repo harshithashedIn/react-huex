@@ -1,4 +1,4 @@
-import React, {createContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./App.css";
 import {BrowserRouter, Route, Router, Switch, withRouter} from "react-router-dom";
 import {HomePage} from "./pages/HomePage";
@@ -6,15 +6,6 @@ import {WhishListPage} from "./pages/WhishListPage";
 import {ICourse} from "./interface/Interfaces";
 import {ProfilePage} from "./pages/ProfilePage";
 
-
-const x: ICourse[] = [{
-    id: 0,
-    instructor: "",
-    title: "",
-    discountedPrice: "",
-    whishlist: false,
-}];
-let name = React.createContext(x);
 
 const App = () => {
     const [whishList, setWhishList] = useState<ICourse[]>([]);
@@ -24,7 +15,8 @@ const App = () => {
 
     useEffect(() => {
         setWhishList(whishList);
-        name = React.createContext(whishList);
+        console.log("hello")
+        console.log(whishList);
     }, [whishList])
 
     return (
@@ -32,13 +24,10 @@ const App = () => {
             <Switch>
                 <Route exact path="/"><HomePage sendWhishList={getWhishList}/></Route>
                 <Route exact path="/profile"><ProfilePage/></Route>
-                <Route exact path="/whishlist">
-                    <name.Provider value={whishList}><WhishListPage/></name.Provider>
-                </Route>
+                <Route exact path="/whishlist"><WhishListPage whishList={whishList}/></Route>
             </Switch>
         </BrowserRouter>
 
     );
 }
 export default App;
-export {name};

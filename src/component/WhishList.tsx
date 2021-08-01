@@ -8,12 +8,17 @@ import {courses} from "../lists/Courses";
 import CSS from "csstype";
 
 
-export const WhishList = () => {
+interface Props{
+    whishList:ICourse[];
+}
+
+export const WhishList = (props:Props) => {
 
     const [courseList, setCourseList] = useState<ICourse[]>([]);
     const [cartCourseList, setCartCourseList] = useState<ICourse[]>([]);
 
     useEffect(() => {
+        setCourseList(props.whishList);
     }, [])
 
     const handleCart = (course: ICourse) => {

@@ -5,14 +5,17 @@ import search from "../assets/Rectangle 36.svg";
 import searchIcon from "../assets/Group 35.svg";
 import {WhishList} from "../component/WhishList";
 import {ICourse} from "../interface/Interfaces";
-import {useContext, useEffect} from "react";
-import {name} from "../App";
+import {useEffect} from "react";
+
+interface Props {
+    whishList: ICourse[];
+}
 
 
-export const WhishListPage = () => {
-    const nam = useContext(name);
+export const WhishListPage = (props: Props) => {
     useEffect(() => {
-        console.log(nam);
+        console.log("hello2");
+        console.log(props.whishList);
     })
 
     return (
@@ -33,7 +36,7 @@ export const WhishListPage = () => {
                     </div>
                 </div>
             </div>
-            {/*<WhishList whishList={props.whishList}/>*/}
+            <WhishList whishList={props.whishList}/>
         </div>
     );
 }
