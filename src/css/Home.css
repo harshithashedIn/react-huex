@@ -1,0 +1,95 @@
+.home-top-container {
+    margin-left: 140px;
+    margin-right: 140px;
+    display: flex !important;
+    justify-content: space-between;
+    margin-top: 42px;
+    height: 40px;
+}
+
+.left-container {
+    width: 1226px;
+    display: flex !important;
+    justify-content: space-between;
+}
+
+.right-container {
+    display: flex !important;
+    width: 398px;
+    margin-left: 16px;
+}
+
+.search-bar {
+    top: 219px;
+    left: 1382px;
+    width: 398px;
+    height: 100%;
+    background: #EFF2FF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 2px;
+}
+
+.sort {
+    top: 219px;
+    left: 1184px;
+    width: 182px;
+    height: 100%;
+}
+
+
+.all-courses {
+    height: 20px;
+    text-align: left;
+    font: normal normal 600 20px/24px Montserrat;
+    letter-spacing: 0px;
+    color: #0F1317;
+    opacity: 1;
+    font-size: 20px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+}
+
+.search-container {
+    height: 100%;
+    width: 52px;
+    position: relative;
+}
+
+.search {
+    height: 100%;
+    width: 52px;
+    position: relative;
+}
+
+.home-container {
+    display: flex !important;
+    justify-content: flex-start;
+    margin-top: 20px;
+    height: 40px;
+}
+
+.left-bottom-container {
+    justify-content: space-between;
+}
+
+.right-bottom-container {
+    width: 400px;
+    padding: 10px;
+}
+
+.heading {
+    text-align: center;
+    font: normal normal 600 18px/22px Montserrat;
+    letter-spacing: 0px;
+    color: #080808;
+    opacity: 1;
+    padding-left: 50px;
+    padding-right: 50px;
+}
