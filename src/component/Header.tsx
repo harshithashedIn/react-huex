@@ -17,7 +17,7 @@ export function Header(props: Props) {
                 <a href="/"><img style={{justifySelf: "flexStart"}} src={logo} alt="HASHEDIN"
                                  className="logo"></img></a>
                 <div className="rightnav">
-                    <a className="courses" href="">COURSES</a>
+                    <a className="courses" href="/">COURSES</a>
                     <a className="my-whishlist" href="/whishlist">MY WHISHLIST</a>
                     <a href=""><img src={cart} className="cart" alt="HASHEDIN"></img></a>
                     <a href="/profile"><img src={profile} className="profile" alt="HASHEDIN"></img></a>

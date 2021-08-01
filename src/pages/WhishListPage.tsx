@@ -4,20 +4,8 @@ import sort from "../assets/Group 71.svg";
 import search from "../assets/Rectangle 36.svg";
 import searchIcon from "../assets/Group 35.svg";
 import {WhishList} from "../component/WhishList";
-import {ICourse} from "../interface/Interfaces";
-import {useEffect} from "react";
 
-interface Props {
-    whishList: ICourse[];
-}
-
-
-export const WhishListPage = (props: Props) => {
-    useEffect(() => {
-        console.log("hello2");
-        console.log(props.whishList);
-    })
-
+export const WhishListPage = () => {
     return (
         <div>
             <Header title="Discover latest courses on react"/>
@@ -36,7 +24,7 @@ export const WhishListPage = (props: Props) => {
                     </div>
                 </div>
             </div>
-            <WhishList whishList={props.whishList}/>
+            <WhishList/>
         </div>
     );
 }

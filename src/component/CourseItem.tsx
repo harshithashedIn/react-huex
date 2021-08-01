@@ -10,28 +10,34 @@ import {CartDetailItem} from "./CartDetailItem";
 import CSS from "csstype";
 import {Modal} from "./Modal";
 
-interface Props {
-    sendWhishList(whishList: ICourse[]): void;
-}
-
-export function CourseItem(props: Props) {
+export function CourseItem() {
     const [courseList, setCourseList] = useState<ICourse[]>([]);
     const [cartCourseList, setCartCourseList] = useState<ICourse[]>([]);
-    const [whishList, setWhishList] = useState<ICourse[]>([]);
-    const [open, setOpen] = useState(false);
-
+    const [open, setOpen] = useState(false); //modal
+    const [refresh, setRefresh] = useState(false);
 
     const handleWhishList = (course: ICourse) => {
         let status: boolean = course.whishlist;
         course.whishlist = !status;
-        setWhishList([...whishList, course]);
-        props.sendWhishList(whishList);
+        courseList.map((c: ICourse) => {
+            if (c.id == course.id) {
+                c.whishlist = !status;
+            }
+        })
+        localStorage.setItem('courselist', JSON.stringify(courseList));
+        setRefresh(!refresh);
     }
 
     useEffect(() => {
-        setCourseList(courses);
-        props.sendWhishList(whishList);
-    }, [whishList])
+        if (localStorage.getItem('refresh')) {
+            const courseListString = JSON.parse(localStorage.getItem('courselist') as string);
+            const courselistlocal = courseListString as ICourse[];
+            setCourseList(courselistlocal);
+        } else {
+            setCourseList(courses);
+            localStorage.setItem('refresh', "true");
+        }
+    }, [refresh])
 
 
     const handleCart = (course: ICourse) => {

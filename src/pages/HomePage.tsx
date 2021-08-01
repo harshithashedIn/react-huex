@@ -5,24 +5,8 @@ import {CourseItem} from "../component/CourseItem";
 import sort from "../assets/Group 71.svg";
 import search from "../assets/Rectangle 36.svg";
 import searchIcon from "../assets/Group 35.svg";
-import {ICourse} from "../interface/Interfaces";
-import {useEffect, useState} from "react";
 
-interface Props {
-    sendWhishList(whishList: ICourse[]): void;
-}
-
-export const HomePage = (props: Props) => {
-
-    const [whishList, setWhishList] = useState<ICourse[]>([]);
-
-    const getWhishList = (newWishList: ICourse[]) => {
-        setWhishList(newWishList);
-        props.sendWhishList(whishList);
-    }
-    useEffect(() => {
-        props.sendWhishList(whishList);
-    }, [whishList])
+export const HomePage = () => {
     return (
         <div>
             <Header title="Discover latest courses on react"/>
@@ -41,7 +25,7 @@ export const HomePage = (props: Props) => {
                     </div>
                 </div>
             </div>
-            <CourseItem sendWhishList={getWhishList}/>
+            <CourseItem/>
         </div>
     );
 }
